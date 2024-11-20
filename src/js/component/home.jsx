@@ -25,24 +25,24 @@ const Home = () => {
 			<h1 className="text-center mt-5">TODOS</h1>
 			<form className="row">
 				<div className="col-12">
-					<input type="text" className="from-control border border-primary w-50" placeholder="Nueva Tarea" value={tarea} onChange={(evento)=>
+					<input type="text" className="form-control border border-secondary" placeholder="Nueva Tarea" value={tarea} onChange={(evento)=>
 						setTarea(evento.target.value)} />
 				</div>
 				<div className="col-12 mt-2">
 					<button type="submit" onClick={(evento)=>agregarTareas(evento)}
-					className="btn btn-primari mb-3">Agregar Tarea</button>
+					className="btn btn-primary mb-3">Agregar Tarea</button>
 				</div>	
 			</form>
 			<ul className="list-group">
-			<ul className="list-group border-primary">
+			<ul className="list-group border-secondary">
 				{lista.map((item, index)=> (
-					<li className="list-group-item border border-primary" key={index}>{item}<i onClick={()=>{
+					<li className="list-group-item border border-secondary text-secondary mb-1" key={index}>{item}<i onClick={()=>{
 						let listaFiltrada = lista.filter((task, subindex) =>{
 							return (subindex != index)
 						})
 						setLista(listaFiltrada)
 					}}
-					className="m-1 fa-solid fa-trash icono-oculto"></i></li>
+					className="m-1 fa-solid fa-x icono-oculto float-end text-secondary"></i></li>
 				))}
 			</ul>
 			<span className="text-primary">{(lista.length==0)?"No hay tareas, Agrega una":""}</span>
